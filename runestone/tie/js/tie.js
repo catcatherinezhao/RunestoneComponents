@@ -26,13 +26,14 @@ Tie.prototype.init = function (opts) {
 };
 
 Tie.prototype.renderHTML = function() {
+    // this.script = document.createElement("script");
+    // this.script.src = "../angular/client/question/components/LearnerViewDirective.js";
+    // $("head").append(this.script);
     this.containerDiv = document.createElement("div");
     this.containerDiv.id = this.divid;
     $(this.containerDiv).addClass(this.origElem.getAttribute("class"));
-    this.newLearnerViewDirective = document.createElement("learner-view-directive");
-    this.newLearnerViewDirective.id = this.divid;
-    this.newLearnerViewDirective.name = this.newLearnerViewDirective.id;
-    this.newLearnerViewDirective.action = "";
+    // $(this.containerDiv).append("<p>Test</p>"); // this works
+    this.newLearnerViewDirective = document.createElement("learner-view");
     this.containerDiv.appendChild(this.newLearnerViewDirective);
 
     $(this.origElem).replaceWith(this.containerDiv);

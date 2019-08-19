@@ -161,7 +161,7 @@ div.section {
 	padding-left:0;
 	padding-right:0;
 }
-.container  .section >*:not(.section):not(.ac_section) {
+.container  .section >*:not(.section):not(.ac_section):not(.tie_section) {
 	max-width: 500pt;
 	margin-left: auto;
 	margin-right: auto;
@@ -278,6 +278,13 @@ div.section {
   padding: 0; margin: 0;
   white-space: pre;
   word-wrap: normal;
+}
+
+.tie_section {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(242, 242, 242);
+    padding: 50px;
 }
 
 button.btn, btn.btn-sm,

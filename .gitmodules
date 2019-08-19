@@ -1,0 +1,3 @@
+[submodule "runestone/common/js/angular"]
+	path = runestone/common/js/angular
+	url = https://github.com/catcatherinezhao/tie.git
