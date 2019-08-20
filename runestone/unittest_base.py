@@ -8,7 +8,7 @@ from selenium.webdriver.chrome.options import Options
 from pyvirtualdisplay import Display
 
 # Select an unused port for serving web pages to the test suite.
-PORT = '8081'
+PORT = '8082'
 
 
 # Provide access to the currently-active ModuleFixture object.

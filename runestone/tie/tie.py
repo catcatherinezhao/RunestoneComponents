@@ -101,7 +101,7 @@ VIS = '''
 </head>
 <body>
 <div id=%(divid)s class="%(divclass)s">
-    <learner-view question-id="%(question)s" show-output="%(output)s" show-error="%(error)s" show-feedback="%(feedback)s"></learner-view>
+    <learner-view tie-id=%(divid)s question-id="%(question)s" show-output="%(output)s" show-error="%(error)s" show-feedback="%(feedback)s"></learner-view>
 </div>
 <script type="text/javascript">
     angular.element(document).ready(function() {
