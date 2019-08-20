@@ -16,6 +16,7 @@ from .reveal import *
 from .shortanswer import *
 from .showeval import *
 from .tabbedStuff import *
+from .tie import *
 from .usageAssignment import *
 from .video import *
 from .webgldemo import *
@@ -121,6 +122,7 @@ cmap = {'activecode': ActiveCode,
         'showeval': ShowEval,
         'tabbed': TabbedStuffDirective,
         'tab': TabDirective,
+        'tie': TieDirective,
         'video': Video,
         'youtube': Youtube,
         'vimeo': Vimeo,

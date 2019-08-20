@@ -184,7 +184,7 @@ ActiveCode.prototype.createControls = function () {
     ctrlDiv.appendChild(butt);
     this.runButton = butt;
     $(butt).click(this.runProg.bind(this));
-    $(butt).attr("type","button")
+    $(butt).attr("type","button");
 
     if (this.enabledownload || eBookConfig.downloadsEnabled) {
       var butt = document.createElement("button");
