@@ -1,11 +1,10 @@
 TIE Test
-----------
+--------
 
 .. tie:: codeexample1
   :output:
   :feedback:
   :error:
-
 
 .. tie:: codeexample2
   :output:
@@ -43,19 +42,3 @@ TIE Test
 .. tie:: codeexample10
   :output:
   :feedback:
-
-
-
-.. :orphan:
-
-.. TIE Test
-.. ========
-
-
-.. .. tie:: test1
-
-
-.. End of test1
-
-
-.. .. tie:: test2

@@ -26,13 +26,9 @@ Tie.prototype.init = function (opts) {
 };
 
 Tie.prototype.renderHTML = function() {
-    // this.script = document.createElement("script");
-    // this.script.src = "../angular/client/question/components/LearnerViewDirective.js";
-    // $("head").append(this.script);
     this.containerDiv = document.createElement("div");
     this.containerDiv.id = this.divid;
     $(this.containerDiv).addClass(this.origElem.getAttribute("class"));
-    // $(this.containerDiv).append("<p>Test</p>"); // this works
     this.newLearnerViewDirective = document.createElement("learner-view");
     this.containerDiv.appendChild(this.newLearnerViewDirective);
 

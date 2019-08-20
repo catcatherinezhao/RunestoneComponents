@@ -4,15 +4,11 @@ from runestone.server.componentdb import addQuestionToDB, addHTMLToDB
 from runestone.common import RunestoneIdDirective, RunestoneNode
 import sys, os
 
-
 def setup(app):
     app.add_directive('tie', TieDirective)
     app.add_node(TieNode, html=(visit_tie_node, depart_tie_node))
 
     app.add_config_value('tie_div_class', 'runestone explainer tie_section alert alert_warning', 'html')
-
-    app.connect('doctree-resolved', process_tie_nodes)
-    app.connect('env-purge-doc', purge_tie)
 
 VIS = '''
 <head>
@@ -112,29 +108,20 @@ VIS = '''
 </body>
 '''
 
-# with node
+# Create a TIE node.
 class TieNode(nodes.General, nodes.Element, RunestoneNode):
     def __init__(self, options, **kwargs):
         super(TieNode, self).__init__(**kwargs)
         self.tienode_components = options
-
 
 def visit_tie_node(self, node):
     div_id = node.tienode_components['divid']
     components = dict(node.tienode_components)
     components.update({'divid': div_id})
     res = VIS % components
-    # addHTMLToDB(div_id, components['basecourse'], res)
-
     self.body.append(res)
 
 def depart_tie_node(self,node):
-    pass
-
-def process_tie_nodes(app, env, docname):
-    pass
-
-def purge_tie(app, env, docname):
     pass
 
 class TieDirective(RunestoneIdDirective):
@@ -152,8 +139,6 @@ config values (conf.py):
     """
     required_arguments = 1  # the div id
     optional_arguments = 3
-    final_argument_whitespace = True
-    # has_content = False
     option_spec = RunestoneIdDirective.option_spec.copy()
     option_spec.update({
         'question': directives.unchanged,
@@ -166,16 +151,15 @@ config values (conf.py):
 
     def run(self):
         super(TieDirective, self).run()
-        # addQuestionToDB(self)
-        # Raise an error if the directive does not have contents.
-        # self.assert_has_content()
 
         self.options['divid'] = self.arguments[0]
 
         env = self.state.document.settings.env
         self.options['divclass'] = env.config.tie_div_class
 
+        # Handle arguments included or not included by user.
         if 'question' not in self.options:
+            # If the user doesn't choose a question, set the default question to 'Reverse Words'.
             self.options['question'] = 'reverseWords'
 
         if 'output' not in self.options:
@@ -184,15 +168,14 @@ config values (conf.py):
             self.options['output'] = 'true'
 
         if 'error' not in self.options:
-            self.options['error'] = 'false'  
+            self.options['error'] = 'false'
         else:
             self.options['error'] = 'true'
 
         if 'feedback' not in self.options:
-            self.options['feedback'] = 'false'  
+            self.options['feedback'] = 'false'
         else:
             self.options['feedback'] = 'true'
-
 
         tie_node = TieNode(self.options, rawsource=self.block_text)
         tie_node.source, tie_node.line = self.state_machine.get_source_and_line(self.lineno)
