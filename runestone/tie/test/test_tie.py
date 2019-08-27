@@ -51,13 +51,3 @@ class TieTests(RunestoneTestCase):
         self.assertIsNotNone(t4HideOutput)
         outputElementList = t4HideOutput.find_elements_by_class_name("tie-print-terminal")
         self.assertEqual(len(outputElementList), 0)
-
-   	'''
-   	test cases
-   	1) tie shows up
-   	2) change question, no question
-   	3) toggle feedback
-   	4) toggle output
-   	5) toggle syntax errors
-   	6) see how many tie's are possible to show up
-   	'''
