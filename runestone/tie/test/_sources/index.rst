@@ -1,44 +1,47 @@
+:orphan:
+
 TIE Test
---------
+========
 
-.. tie:: codeexample1
+.. tie:: test1
   :output:
   :feedback:
   :error:
 
-.. tie:: codeexample2
+.. tie:: test2DefaultQuestion
   :output:
   :feedback:
   :error:
 
-.. tie:: codeexample3
+.. tie:: test2CustomQuestion
+  :question: sortItinerary
   :output:
   :feedback:
+  :error:
 
-.. tie:: codeexample4
+.. tie:: test3ShowFeedback
   :output:
   :feedback:
+  :error:
 
-.. tie:: codeexample5
+.. tie:: test3HideFeedback
   :output:
-  :feedback:
+  :error:
 
-.. tie:: codeexample6
+.. tie:: test4ShowOutput
   :output:
   :feedback:
+  :error:
 
-.. tie:: codeexample7
-  :output:
+.. tie:: test4HideOutput
   :feedback:
+  :error:
 
-.. tie:: codeexample8
+.. tie:: test5ShowError
   :output:
   :feedback:
+  :error:
 
-.. tie:: codeexample9
-  :output:
+.. tie:: test5HideError
   :feedback:
-
-.. tie:: codeexample10
   :output:
-  :feedback:
