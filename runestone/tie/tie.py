@@ -1,13 +1,10 @@
 from docutils import nodes
 from docutils.parsers.rst import directives
-from runestone.server.componentdb import addQuestionToDB, addHTMLToDB
 from runestone.common import RunestoneIdDirective, RunestoneNode
-import sys, os
 
 def setup(app):
     app.add_directive('tie', TieDirective)
     app.add_node(TieNode, html=(visit_tie_node, depart_tie_node))
-
     app.add_config_value('tie_div_class', 'runestone explainer tie_section alert alert_warning', 'html')
 
 VIS = '''
@@ -138,7 +135,7 @@ config values (conf.py):
 - tie_div_class - custom CSS class of the component's outermost div
     """
     required_arguments = 1  # the div id
-    optional_arguments = 3
+    optional_arguments = 4
     option_spec = RunestoneIdDirective.option_spec.copy()
     option_spec.update({
         'question': directives.unchanged,
@@ -181,3 +178,4 @@ config values (conf.py):
         tie_node.source, tie_node.line = self.state_machine.get_source_and_line(self.lineno)
 
         return [tie_node]
+        
